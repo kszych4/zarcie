@@ -20,9 +20,9 @@
 
         <!-- When a link in the menu is clicked, we set the active variable -->
 
-        <a href="#" class="zamowienia" ng-click="active='zamowienia'">Zamówienia</a>
-        <a href="#" class="komentarze" ng-click="active='komentarze'">Komentarze</a>
-        <a href="#" class="opinie" ng-click="active='opinie'">Opinie</a>
+        <a href="#" class="zamowienia" ng-click="active='zamowienia'; show='true'; pokazGrupe='false'">Zamówienie</a>
+        <a href="#" class="komentarze" ng-click="active='komentarze'; show='false'; pokazGrupe='false'" >Komentarze</a>
+        <a href="#" class="opinie" ng-click="active='opinie'; show='false'; pokazGrupe='false'" >Opinie</a>
     </nav>
 
     <!-- ng-show will show an element if the value in the quotes is truthful,
@@ -30,7 +30,13 @@
          initially, this will cause the first paragraph to be visible. -->
 
     <p ng-hide="active">Wybierz</p>
-    <p ng-show="active">Wybrałeś <b>{{active}}</b></p>
+    <p ng-show="active">Wybrałeś <b>{{active}}</b>
+        <br>
+        <a href="#" ng-hide="show=='false'" class="grupa" ng-click="pokazGrupe='true'" >Dodaj grupę</a>
+        <br>
+    <p ng-hide="pokazGrupe=='false'">Podaj nazwę grupy: <input type="text" ng-hide="pokazGrupe=='false'" ng-model="name"></p>
+    <p ng-hide="pokazGrupe=='false'" ng-bind="name"></p>
+    </p>
 </div>
 </body>
 </html>
