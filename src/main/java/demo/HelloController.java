@@ -11,7 +11,7 @@ public class HelloController {
 
     @RequestMapping("/ctrl")
     public Greeting index() {
-        return new Greeting(1,"test");
+        return new Greeting(99,"PentaŻarcie");
     }
 
 }
