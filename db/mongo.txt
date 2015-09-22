@@ -1,0 +1,140 @@
+----------------------------------------------------------------
+use local
+----------------------------------------------------------------
+show dbs
+show users
+----------------------------------------------------------------
+use local
+db.createUser(
+  {
+    user: "PentaZarcie",
+    pwd: "PentaZarcie",
+    roles: [ { role: "userAdmin", db: "admin" } ]
+  }
+)
+
+----------------------------------------------------------------
+Usuniecie użytkownika PentaZarcie
+{
+  dropUser: "PentaZarcie"
+}
+----------------------------------------------------------------
+db.grantRolesToUser(
+    "PentaZarcie",
+    [
+      { role: "read", db: "admin" },
+      { role: "readWrite", db: "admin" }
+
+    ]
+)
+----------------------------------------------------------------
+show collections
+----------------------------------------------------------------
+db.users.find()
+db.groups.find()
+db.members_groups.find()
+-----------------------------------------------------------------
+db.createCollection("users")
+db.createCollection("groups")
+db.createCollection("members_groups")
+db.createCollection("places")
+----------------------------------------------------------------
+db.users.insert( {
+    login: "jaw",
+    name: "Jarek",
+    surname: "W"
+ } )
+db.users.insert( {
+    login: "kkrz",
+    name: "Krzysztof",
+    surname: "K"
+ } )
+----------------------------------------------------------------
+db.groups.insert( {
+    name: "pizza",
+    date_from: new ISODate("2015-09-10"),
+    date_to: new ISODate("2015-09-23")
+ } )
+db.groups.insert( {
+    name: "soup",
+    date_from: new ISODate("2015-09-01"),
+    date_to: new ISODate("2015-09-25")
+ } )
+-----------------------------------------------------------------
+db.members_groups.insert( {
+    user_id: ObjectId("5601434d07b07e2999186045"),
+    user_login: "jaw",
+    group_id: ObjectId("56015ff23c340efb4954e3c1"),
+    group_name: "pizza"
+ } )
+-----------------------------------------------------------------
+db.places.insert( {
+    name: "PizzaHut",
+    insert_date: new Date(),
+    update_date: new Date()
+ } )
+------------------------------------------------------------------
+db.users.update(
+    { },
+    { $set: { insert_date: new Date(), update_date: new Date()} },
+    { multi: true }
+)
+-----------------------------------------------------------------
+db.groups.update(
+    { },
+    { $set: { insert_date: new Date(), update_date: new Date()} },
+    { multi: true }
+)
+-----------------------------------------------------------------
+db.members_groups.update(
+    { },
+    { $set: { insert_date: new Date(), update_date: new Date()} },
+    { multi: true }
+)
+-----------------------------------------------------------------
+db.groups.update(
+    { },
+    { $set: { place_id: ObjectId("56016e5c566fbe514b3935d0")} },
+    { multi: true }
+)
+-----------------------------------------------------------------
+db.members_groups.update(
+    { },
+    { $set: { opinion: "super super"} },
+    { multi: true }
+)
+
+users
+-------------
+login
+name
+surname
+insert_date
+update_date
+
+
+groups
+------------
+name
+date_from
+date_to
+insert_date
+update_date
+place_id
+
+
+members_groups
+-----------------
+user_id
+user_login
+group_id
+group_name
+opinion
+insert_date
+update_date
+
+places
+-----------------
+name
+insert_date
+update_date
