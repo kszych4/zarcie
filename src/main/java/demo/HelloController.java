@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HelloController {
 
     @RequestMapping("/ctrl")
-    public String index() {
-        return "Greetings from Spring Booooooooooooooooooooooooooooot!";
+    public Greeting index() {
+        return new Greeting(1,"test");
     }
 
 }
