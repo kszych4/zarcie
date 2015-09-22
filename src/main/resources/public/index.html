@@ -1,60 +1,27 @@
 <!doctype html>
-<html ng-app="pentaZarcie">
+<html>
+
 <head>
-    <title>Hello AngularJS</title>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <link rel="stylesheet" href="app.css">
-    <link rel="stylesheet" href="style.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
-    <script src="hello.js"></script>
-    <script src="app.js"></script>
-    <script src="zamowienia/zamowienia.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script src = "functions.js"></script>
 </head>
 
-<body>
+<body ng-app = "pentaZarcie">
 
-<div ng-controller="groups">
-    <div>GROUPS</div>
+<div ng-controller = "usersCtrl" >
+    <div ng-repeat="user in users track by user.login">
+        {{user.login}}
+    </div>
+</div>
+<div ng-controller = "groupsCtrl" >
     <div ng-repeat="group in groups track by group.name">
         {{group.name}}
     </div>
 </div>
 
-<div ng-controller="users">
-    <div>USERS</div>
-    <div ng-repeat="user in users track by user.login">
-        {{user.login}}
-    </div>
-</div>
-<div ng-controller="places">
-    <div>PLACES</div>
-    <div ng-repeat="place in places track by place.name">
-        {{place.name}}
-    </div>
-</div>
+<script>
 
+</script>
 
-<div id="main" ng-app>
-    <!-- The navigation menu will get the value of the "active" variable as a class.
-         The $event.preventDefault() stops the page from jumping when a link is clicked. -->
-
-    <nav class="{{active}}" ng-click="$event.preventDefault()">
-
-        <!-- When a link in the menu is clicked, we set the active variable -->
-
-        <a href="#/zamowienia" class="zamowienia" ng-click="active='zamowienia'; show='true'; pokazGrupe='false'">Zamówienie</a>
-        <a href="#" class="komentarze" ng-click="active='komentarze'; show='false'; pokazGrupe='false'" >Komentarze</a>
-        <a href="#" class="opinie" ng-click="active='opinie'; show='false'; pokazGrupe='false'" >Opinie</a>
-    </nav>
-
-    <!-- ng-show will show an element if the value in the quotes is truthful,
-         while ng-hide does the opposite. Because the active variable is not set
-         initially, this will cause the first paragraph to be visible. -->
-
-    <p ng-hide="active">Wybierz</p>
-    <p ng-show="active">Wybrałeś <b>{{active}}</b></p>
-</div>
-<div ng-view></div>
 </body>
 </html>
