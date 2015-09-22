@@ -60,7 +60,8 @@ nav a:last-child{
 
 nav.zamowienia .zamowienia,
 nav.komentarze .komentarze,
-nav.opinie .opinie {
+nav.opinie .opinie,
+nav.grupa .grupa,{
     background-color:#e35885;
 }
 
