@@ -1,0 +1,11 @@
+{
+  "name": "zarcie",
+  "version": "0.0.0",
+  "homepage": "https://github.com/kszych4/zarcie",
+  "description": "pentaZarcie",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.6",
+    "angular-route": "~1.4.6"
+  }
+}
