@@ -71,4 +71,8 @@ public class Place {
 				", updateDate=" + updateDate +
 				'}';
 	}
+
+	public String getId() {
+		return id;
+	}
 }

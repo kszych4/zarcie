@@ -66,4 +66,8 @@ public class User {
 				", lastName='" + lastName + '\'' +
 				'}';
 	}
+
+	public String getId() {
+		return id;
+	}
 }

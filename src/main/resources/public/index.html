@@ -19,6 +19,23 @@
     </div>
 </div>
 
+<div ng-controller = "placesCtrl" >
+    <table >
+        <tr>
+            <th>Miejsce</th>
+            <th>Opis</th>
+            <th>Ocena</th>
+            <th></th>
+        </tr>
+    <tr ng-repeat="place in places track by place.name">
+        <td>{{place.name}}</td>
+        <td>{{place.description}}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    </table>
+</div>
+
 <script>
 
 </script>

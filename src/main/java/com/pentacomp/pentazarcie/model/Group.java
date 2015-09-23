@@ -4,6 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -31,8 +32,6 @@ public class Group {
 	private Date updateDate;
 
 	private Place place;
-
-	private List<User> users;
 
 	public Group(String name, Date createDate, Date validUtilDate, Date validFromDate, Date updateDate) {
 		this.name = name;
@@ -101,5 +100,9 @@ public class Group {
 				", updateDate=" + updateDate +
 				", place=" + place +
 				'}';
+	}
+
+	public String getId() {
+		return id;
 	}
 }
